@@ -1,5 +1,6 @@
-import { FC, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+
 import {
   filter_alphabetic,
   filter_button,
@@ -41,7 +42,7 @@ const FilterBtnContainer = styled.button<{ active: boolean }>`
   }
 `;
 
-const FilterBtn: FC<FilterBtnProps> = ({ filterBy }) => {
+const FilterBtn: React.FC<FilterBtnProps> = ({ filterBy }) => {
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const filter =

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { bookcase } from "../Assets";
@@ -31,7 +31,7 @@ const BookcaseContainer = styled.div`
   }
 `;
 
-const Bookcase: FC = () => {
+const Bookcase: React.FC = () => {
   return <BookcaseContainer></BookcaseContainer>;
 };
 

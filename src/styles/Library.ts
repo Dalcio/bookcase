@@ -28,9 +28,8 @@ export const Library = styled.div`
     background-repeat: repeat-x;
   }
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  justify-content: center;
 
   & > .logo {
     position: relative;
@@ -39,6 +38,13 @@ export const Library = styled.div`
   }
 
   @media screen and (min-width: 720px) {
-    /* background-color: purple; */
+    grid-template-columns: 1fr auto 460px auto 1fr;
+    grid-template-rows: .6fr auto 2fr;
+    align-items: center;
+
+    & > .logo {
+      grid-row: 2 / 3;
+      grid-column: 4 / 5;
+    }
   }
 `;
