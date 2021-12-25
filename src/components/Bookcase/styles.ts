@@ -1,9 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 
-import { bookcase } from "../Assets";
+import { bookcase } from "../../Assets";
 
-const BookcaseContainer = styled.div`
+export const BookcaseContainer = styled.div`
   position: absolute;
   z-index: 1;
   background: url(${bookcase});
@@ -30,9 +29,3 @@ const BookcaseContainer = styled.div`
   @media screen and (min-width: 720px) {
   }
 `;
-
-const Bookcase: React.FC = () => {
-  return <BookcaseContainer></BookcaseContainer>;
-};
-
-export default Bookcase;
