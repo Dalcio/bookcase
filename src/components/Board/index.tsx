@@ -5,9 +5,21 @@ import { FiltersKeys } from "../FilterBtn/type";
 
 import Organize from "../Organize";
 import FilterBtn from "../FilterBtn";
+import { useBookcase } from "../../context";
 
 const Board: React.FC = () => {
+  const { sortByAlphabet, sortByColors, sortBySizes } = useBookcase();
   const [selectedFilter, setSelectedFilter] = useState<FiltersKeys>("alphabet");
+
+  const organizeBy = () => {
+    if (selectedFilter === "alphabet") {
+      sortByAlphabet();
+    } else if (selectedFilter === "color") {
+      sortByColors();
+    } else {
+      sortBySizes();
+    }
+  };
 
   return (
     <BoardWrapper>
@@ -30,7 +42,7 @@ const Board: React.FC = () => {
             selectFilter={setSelectedFilter}
           />
         </div>
-        <Organize />
+        <Organize onClick={organizeBy} />
       </div>
     </BoardWrapper>
   );

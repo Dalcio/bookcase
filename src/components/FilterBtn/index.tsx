@@ -10,17 +10,17 @@ import {
 import { FilterBtnContainer } from "./styles";
 import { FilterBtnProps } from "./type";
 
+const filtersSvg = {
+  alphabet: filter_alphabetic,
+  color: filter_colors,
+  size: filter_sizes,
+};
+
 const FilterBtn: React.FC<FilterBtnProps> = ({
   filter,
   selectedFilter,
   selectFilter,
 }) => {
-  const filtersSvg = {
-    alphabet: filter_alphabetic,
-    color: filter_colors,
-    size: filter_sizes,
-  };
-
   const handleFilterIsActive = () => {
     selectFilter(filter);
   };

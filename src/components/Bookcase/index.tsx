@@ -1,16 +1,15 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 
 import { BookcaseContainer } from "./styles";
-import { TBook } from "../Book/types";
-import { initFirstShelf, initSecondShelf } from "./init";
 import { reorderDiffSource, reorderSameSource } from "./reorders";
 
 import Shelf from "../Shelf";
+import { useBookcase } from "../../context";
 
 const Bookcase: React.FC = () => {
-  const [firstShelf, setFirstShelf] = useState<TBook[]>(initFirstShelf);
-  const [secondShelf, setSecondShelf] = useState<TBook[]>(initSecondShelf);
+  const { firstShelf, secondShelf, setFirstShelf, setSecondShelf } =
+    useBookcase();
 
   const onDragEnd = useCallback(
     (result: DropResult) => {
@@ -60,7 +59,7 @@ const Bookcase: React.FC = () => {
         }
       }
     },
-    [firstShelf, secondShelf]
+    [firstShelf, secondShelf, setFirstShelf, setSecondShelf]
   );
 
   return (

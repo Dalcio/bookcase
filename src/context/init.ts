@@ -1,6 +1,5 @@
 import { v4 as uuid4 } from "uuid";
-
-import { TBook } from "../Book/types";
+import { TBook } from "../components/Book/types";
 
 export const initFirstShelf = (): TBook[] => [
   {
@@ -51,9 +50,9 @@ export const initSecondShelf = (): TBook[] => [
   {
     id: uuid4(),
     createdAt: new Date(),
-    color: "pink",
-    name: "g",
-    size: 1,
+    color: "green",
+    name: "i",
+    size: 3,
   },
   {
     id: uuid4(),
@@ -65,8 +64,8 @@ export const initSecondShelf = (): TBook[] => [
   {
     id: uuid4(),
     createdAt: new Date(),
-    color: "green",
-    name: "i",
-    size: 3,
+    color: "pink",
+    name: "g",
+    size: 1,
   },
 ];
