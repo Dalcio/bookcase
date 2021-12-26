@@ -36,13 +36,15 @@ export const Library = styled.div`
     width: 130px;
     margin-top: 16px;
   }
-
+  
   @media screen and (min-width: 720px) {
-    grid-template-columns: 1fr auto 460px auto 1fr;
-    grid-template-rows: .6fr auto 2fr;
+    grid-template-columns: auto 400px auto;
+    grid-template-rows: 0.2fr auto 2fr;
+    column-gap: 1%;
     align-items: center;
-
+    
     & > .logo {
+      width: 160px;
       grid-row: 2 / 3;
       grid-column: 4 / 5;
     }
