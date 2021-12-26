@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   filter_alphabetic,
@@ -8,35 +8,38 @@ import {
   filter_sizes,
 } from "../../Assets/filters";
 import { FilterBtnContainer } from "./styles";
+import { FilterBtnProps } from "./type";
 
-type FilterBtnProps = {
-  filterBy: "alphabet" | "color" | "size";
-  // activeFilter: "alphabet" | "color" | "size";
-  // compareFn: () => void;
-};
-
-const FilterBtn: React.FC<FilterBtnProps> = ({ filterBy }) => {
-  const [isActive, setIsActive] = useState<boolean>(false);
-
-  const filter =
-    (filterBy === "alphabet" && filter_alphabetic) ||
-    (filterBy === "color" && filter_colors) ||
-    filter_sizes;
+const FilterBtn: React.FC<FilterBtnProps> = ({
+  filter,
+  selectedFilter,
+  selectFilter,
+}) => {
+  const filtersSvg = {
+    alphabet: filter_alphabetic,
+    color: filter_colors,
+    size: filter_sizes,
+  };
 
   const handleFilterIsActive = () => {
-    setIsActive((prev) => !prev);
+    selectFilter(filter);
   };
 
   return (
-    <FilterBtnContainer active={isActive} onClick={handleFilterIsActive}>
+    <FilterBtnContainer
+      active={filter === selectedFilter}
+      onClick={handleFilterIsActive}
+    >
       <img
-        src={(isActive && filter_button_active) || filter_button}
+        src={
+          (filter === selectedFilter && filter_button_active) || filter_button
+        }
         alt=""
         className="btn-filter-shape"
       />
       <img
-        src={filter}
-        alt={`filter by ${filterBy}`}
+        src={filtersSvg[filter]}
+        alt={`filter by ${filter}`}
         className="filter-by-shape"
       />
     </FilterBtnContainer>
