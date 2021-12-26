@@ -1,4 +1,4 @@
-export { default as book } from "./book_a.svg";
+export { default as book_a } from "./book_a.svg";
 export { default as book_b } from "./book_b.svg";
 export { default as book_c } from "./book_c.svg";
 export { default as book_d } from "./book_d.svg";
