@@ -9,12 +9,13 @@ The project includes the **mandatory feature** plus add **extra challenges**.
 
 ## Summary
 
-- [Mandatory Features](##mandatory-features)
-- [Extra Challenges](##extra-challenges)
-- [Main Technologies](##main-technologies)
-- [External Libraries](##external-libraries)
+- [Mandatory Features](#mandatory-features)
+- [Extra Challenges](#extra-challenges)
+- [Main Technologies](#main-technologies)
+- [External Libraries](#external-libraries-npm)
+- [Live Demo](#live-demo)
 
-## Mandatory Features {##mandatory-features}
+## Mandatory Features
 
 - [x] 2 book listings (shelves)
 - [x] Allow the change of positions of books by dragging and dropping, being able to be for the same shelf or not.
@@ -24,7 +25,7 @@ The project includes the **mandatory feature** plus add **extra challenges**.
       (Red, Orange, Yellow, Green, Light Blue, Dark Blue, Violet, Pink)
       **Note:** I had to add **magenta** color because the quantity of provided colors doesn't match with all books, missing one book without color (provided 8 color with 9 books. I add the 9nth color). Making the order: **_(Red, Orange, Yellow, Green, Light Blue, Dark Blue, Violet, Pink, Magenta)_**.
 
-## Extra Challenges {##extra-challenges}
+## Extra Challenges
 
 I solved all proposed extras challenges, shown below
 
@@ -34,14 +35,18 @@ I solved all proposed extras challenges, shown below
 - [x] Sort by posting data
 - [x] Make the clock work
 
-## Main Technologies {##main-technologies}
+## Main Technologies
 
 - React ts
 - Typescript
 
-## External libraries (Npm) {##external-libraries}
+## External libraries (NPM)
 
 - [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
 - [styled-components](https://styled-components.com/)
 - [uuid](https://github.com/uuidjs/uuid#readme)
 - [date-fns](https://date-fns.org/)
+
+## Live Demo
+
+Click [here]() to see the live
