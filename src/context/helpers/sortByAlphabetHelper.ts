@@ -1,4 +1,4 @@
-import { TBook } from "../../components/Book/types";
+import { BookType } from "../../components/Book/types";
 import { LastFilter } from "../types";
 import { SortByColorHelper } from "./types";
 
@@ -20,7 +20,7 @@ const sortByAlphabetHelper = ({
     filter = "alphabet-des";
   }
 
-  const sort = ({ name }: TBook, { name: _name }: TBook) => {
+  const sort = ({ name }: BookType, { name: _name }: BookType) => {
     if (name > _name) return order * 1;
     if (name < _name) return order * -1;
     return 0;

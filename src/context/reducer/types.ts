@@ -1,10 +1,10 @@
-import { TBook } from "../../components/Book/types";
+import { BookType } from "../../components/Book/types";
 import { LastFilter } from "../types";
 
 export type StatePayloadType = {
   lastFilter: LastFilter;
-  firstShelf: TBook[];
-  secondShelf: TBook[];
+  firstShelf: BookType[];
+  secondShelf: BookType[];
 };
 
 export type ActionWithPayloadType =
@@ -26,5 +26,5 @@ export type ActionWithPayloadType =
         | "UPDATE_BOOK_FROM_SECOND_SHELF"
         | "ADD_BOOK_TO_FIRST_SHELF"
         | "ADD_BOOK_TO_SECOND_SHELF";
-      payload: TBook[];
+      payload: BookType[];
     };

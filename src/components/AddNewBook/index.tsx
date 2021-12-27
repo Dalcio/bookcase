@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useBookcase } from "../../context";
-import { TBook } from "../Book/types";
+import { BookType } from "../Book/types";
 import { useModal } from "../Modal";
 import { AddNewBookBtn } from "./styles";
 
@@ -12,7 +12,7 @@ const AddNewBook: React.FC = () => {
 
   const { openModal, closeModal } = useModal();
 
-  const addBook = (book: TBook, shelf?: 0 | 1) => {
+  const addBook = (book: BookType, shelf?: 0 | 1) => {
     closeModal();
     shelf === 0 ? addBookToFirstShelf(book) : addBookToSecondShelf(book);
   };

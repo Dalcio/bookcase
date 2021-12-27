@@ -2,7 +2,7 @@ export type BookNames = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i";
 
 export type BookProps = { name: BookNames; index: number; id: string };
 
-export type TBook = { releaseDate: Date; id: string } & (
+export type BookType = { releaseDate: Date; id: string } & (
   | {
       size: 4;
       name: "a";

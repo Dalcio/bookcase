@@ -1,12 +1,12 @@
-import { TBook } from "../../../components/Book/types";
+import { BookType } from "../../../components/Book/types";
 import { ActionDispatch } from "../types";
 
 const reorderBothShelves =
   (
     origin: "FIRST" | "SECOND",
     dispatch: ActionDispatch,
-    sourceShelf: TBook[],
-    destShelf: TBook[]
+    sourceShelf: BookType[],
+    destShelf: BookType[]
   ) =>
   (startIndex: number, endIndex: number) => {
     const source = sourceShelf.filter((_, i) => i !== startIndex);

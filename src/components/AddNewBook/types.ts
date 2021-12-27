@@ -1,8 +1,8 @@
-import { TBook } from "../Book/types";
+import { BookType } from "../Book/types";
 
 export type BookCardType = {
-  onFinish: (book: TBook, shelf?: 0 | 1) => void;
-  book?: TBook;
+  onFinish: (book: BookType, shelf?: 0 | 1) => void;
+  book?: BookType;
   title?: string;
   finishBtnLabel?: string;
 };

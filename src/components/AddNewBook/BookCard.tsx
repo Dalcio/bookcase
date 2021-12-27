@@ -2,7 +2,7 @@ import { SyntheticEvent, useCallback, useState } from "react";
 import { v4 as uuid4 } from "uuid";
 
 import { ReleaseDate, ShelfPosition } from "./helpers";
-import { TBook } from "../Book/types";
+import { BookType } from "../Book/types";
 import { AddNewBookCardContainer as BookCardContainer } from "./styles";
 import { BookCardType } from "./types";
 
@@ -39,11 +39,11 @@ const BookCard: React.FC<BookCardType> = ({
   const handleNewBook = () => {
     const bookBase = allBooks.find((book) => book.name === selectedBook);
     if (bookBase) {
-      const newBook: TBook = {
+      const newBook: BookType = {
         ...bookBase,
         id: uuid4(),
         releaseDate,
-      } as TBook;
+      } as BookType;
       onFinish(newBook, shelfNumber);
     }
   };

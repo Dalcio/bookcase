@@ -1,4 +1,4 @@
-import { TBook } from "../../components/Book/types";
+import { BookType } from "../../components/Book/types";
 import { LastFilter } from "../types";
 import { SortByColorHelper } from "./types";
 
@@ -20,7 +20,7 @@ const sortBySizeHelper = ({
     filter = "size";
   }
 
-  const sort = ({ size }: TBook, { size: _size }: TBook) =>
+  const sort = ({ size }: BookType, { size: _size }: BookType) =>
     order * (size - _size);
 
   firstShelfCpy.sort(sort);

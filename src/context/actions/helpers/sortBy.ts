@@ -1,4 +1,4 @@
-import { TBook } from "../../../components/Book/types";
+import { BookType } from "../../../components/Book/types";
 import { FiltersKeys } from "../../../components/FilterBtn/type";
 import { StatePayloadType } from "../../reducer/types";
 import { LastFilter } from "../../types";
@@ -41,7 +41,7 @@ const sortBy =
 
     if (index === "release-date") return;
 
-    const sort = (a: TBook, b: TBook) =>
+    const sort = (a: BookType, b: BookType) =>
       sortFilter === "color"
         ? sorter(colorWeight[a.color], colorWeight[b.color], order)
         : sorter(a[index], b[index], order);

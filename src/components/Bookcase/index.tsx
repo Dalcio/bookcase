@@ -8,7 +8,7 @@ import Shelf from "../Shelf";
 import Options from "../Options";
 import { useModal } from "../Modal";
 import BookCard from "../AddNewBook/BookCard";
-import { TBook } from "../Book/types";
+import { BookType } from "../Book/types";
 
 const Bookcase: React.FC = () => {
   const {
@@ -39,7 +39,7 @@ const Bookcase: React.FC = () => {
 
       const book = books[index];
 
-      const updateBook = (updatedBook: TBook) => {
+      const updateBook = (updatedBook: BookType) => {
         closeModal();
         if (sourceId === "first-shelf-droppable") {
           updateBookFromFirstShelf(updatedBook, index);

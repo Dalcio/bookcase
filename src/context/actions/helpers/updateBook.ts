@@ -1,13 +1,13 @@
-import { TBook } from "../../../components/Book/types";
+import { BookType } from "../../../components/Book/types";
 import { ActionDispatch } from "../types";
 
 const updateBook =
   (
     fromShelf: "UPDATE_BOOK_FROM_FIRST_SHELF" | "UPDATE_BOOK_FROM_SECOND_SHELF",
     dispatch: ActionDispatch,
-    targetShelf: TBook[]
+    targetShelf: BookType[]
   ) =>
-  (book: TBook, index: number) => {
+  (book: BookType, index: number) => {
     const shelf = [...targetShelf];
     shelf[index] = book;
 

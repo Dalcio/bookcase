@@ -1,8 +1,8 @@
 import { v4 as uuid4 } from "uuid";
-import { TBook } from "../components/Book/types";
+import { BookType } from "../components/Book/types";
 import { StatePayloadType } from "./reducer/types";
 
-const firstShelfDefaultState: TBook[] = [
+const firstShelfDefaultState: BookType[] = [
   {
     id: uuid4(),
     releaseDate: new Date(),
@@ -47,7 +47,7 @@ const firstShelfDefaultState: TBook[] = [
   },
 ];
 
-const secondShelfDefaultState: TBook[] = [
+const secondShelfDefaultState: BookType[] = [
   {
     id: uuid4(),
     releaseDate: new Date(),
@@ -77,6 +77,6 @@ export const initialState: StatePayloadType = {
   secondShelf: secondShelfDefaultState,
 };
 
-export const initFirstShelf = (): TBook[] => firstShelfDefaultState;
+export const initFirstShelf = (): BookType[] => firstShelfDefaultState;
 
-export const initSecondShelf = (): TBook[] => secondShelfDefaultState;
+export const initSecondShelf = (): BookType[] => secondShelfDefaultState;

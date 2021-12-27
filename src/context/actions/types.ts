@@ -1,5 +1,5 @@
 import { Dispatch } from "react";
-import { TBook } from "../../components/Book/types";
+import { BookType } from "../../components/Book/types";
 import { ActionWithPayloadType } from "../reducer/types";
 
 export type ActionDispatch = Dispatch<ActionWithPayloadType>;
@@ -24,13 +24,13 @@ type DeleteActionsType = {
 };
 
 type UpdateBookActionsType = {
-  updateBookFromFirstShelf: (book: TBook, index: number) => void;
-  updateBookFromSecondShelf: (book: TBook, index: number) => void;
+  updateBookFromFirstShelf: (book: BookType, index: number) => void;
+  updateBookFromSecondShelf: (book: BookType, index: number) => void;
 };
 
 type AddBookActionsType = {
-  addBookToFirstShelf: (book: TBook) => void;
-  addBookToSecondShelf: (book: TBook) => void;
+  addBookToFirstShelf: (book: BookType) => void;
+  addBookToSecondShelf: (book: BookType) => void;
 };
 
 export type ActionsType = SortActionsType &

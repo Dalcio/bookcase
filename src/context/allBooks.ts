@@ -1,6 +1,6 @@
-import { TBook } from "../components/Book/types";
+import { BookType } from "../components/Book/types";
 
-const allBooks: Omit<TBook, "releaseDate" | "id">[] = [
+const allBooks: Omit<BookType, "releaseDate" | "id">[] = [
   {
     color: "yellow",
     name: "a",

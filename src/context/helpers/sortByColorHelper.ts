@@ -1,4 +1,4 @@
-import { TBook } from "../../components/Book/types";
+import { BookType } from "../../components/Book/types";
 import { LastFilter } from "../types";
 import { SortByColorHelper } from "./types";
 
@@ -32,7 +32,7 @@ const sortByColorsHelper = ({
     filter = "color-des";
   }
 
-  const sort = ({ color }: TBook, { color: _color }: TBook) =>
+  const sort = ({ color }: BookType, { color: _color }: BookType) =>
     order * (colorsWeight[color] - colorsWeight[_color]);
 
   firstShelfCpy.sort(sort);

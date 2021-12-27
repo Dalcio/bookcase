@@ -1,6 +1,6 @@
 import { compareAsc, compareDesc } from "date-fns";
 
-import { TBook } from "../../../components/Book/types";
+import { BookType } from "../../../components/Book/types";
 import { StatePayloadType } from "../../reducer/types";
 import { LastFilter } from "../../types";
 import { ActionDispatch } from "../types";
@@ -20,7 +20,7 @@ const sortByReleaseDate =
       lastFilter = "release-date-des";
     }
 
-    const sort = (a: TBook, b: TBook) =>
+    const sort = (a: BookType, b: BookType) =>
       (ascending && compareAsc(a.releaseDate, b.releaseDate)) ||
       compareDesc(a.releaseDate, b.releaseDate);
 
