@@ -6,7 +6,6 @@ import { useBookcase } from "../../context";
 
 import Shelf from "../Shelf";
 import Options from "../Options";
-import AddNewBook from "../AddNewBook";
 
 const Bookcase: React.FC = () => {
   const {
