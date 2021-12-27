@@ -8,7 +8,8 @@ import FilterBtn from "../FilterBtn";
 import { useBookcase } from "../../context";
 
 const Board: React.FC = () => {
-  const { sortByAlphabet, sortByColors, sortBySizes } = useBookcase();
+  const { sortByAlphabet, sortByColors, sortBySizes, sortByReleaseDate } =
+    useBookcase();
   const [selectedFilter, setSelectedFilter] = useState<FiltersKeys>("alphabet");
 
   const organizeBy = () => {
@@ -16,8 +17,10 @@ const Board: React.FC = () => {
       sortByAlphabet();
     } else if (selectedFilter === "color") {
       sortByColors();
-    } else {
+    } else if (selectedFilter === "size") {
       sortBySizes();
+    } else {
+      sortByReleaseDate();
     }
   };
 
@@ -38,6 +41,11 @@ const Board: React.FC = () => {
           />
           <FilterBtn
             filter="size"
+            selectedFilter={selectedFilter}
+            selectFilter={setSelectedFilter}
+          />
+          <FilterBtn
+            filter="release-date"
             selectedFilter={selectedFilter}
             selectFilter={setSelectedFilter}
           />

@@ -5,6 +5,7 @@ import {
   reorderBothShelves,
   reorderShelf,
   sortBy,
+  sortByReleaseDate,
   updateBook,
 } from "./helpers";
 import { ActionDispatch, ActionsType } from "./types";
@@ -16,6 +17,7 @@ const actions = (
   sortByAlphabet: sortBy("alphabet", dispatch, state),
   sortByColors: sortBy("color", dispatch, state),
   sortBySizes: sortBy("size", dispatch, state),
+  sortByReleaseDate: sortByReleaseDate(dispatch, state),
   reorderFromFstToSndShelves: reorderBothShelves(
     "FIRST",
     dispatch,

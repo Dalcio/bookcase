@@ -39,6 +39,8 @@ const sortBy =
 
     const index = sortFilter === "alphabet" ? "name" : sortFilter;
 
+    if (index === "release-date") return;
+
     const sort = (a: TBook, b: TBook) =>
       sortFilter === "color"
         ? sorter(colorWeight[a.color], colorWeight[b.color], order)

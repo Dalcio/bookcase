@@ -1,4 +1,4 @@
-export type FiltersKeys = "alphabet" | "color" | "size";
+export type FiltersKeys = "alphabet" | "color" | "size" | "release-date";
 
 export type FilterBtnProps = {
   filter: FiltersKeys;

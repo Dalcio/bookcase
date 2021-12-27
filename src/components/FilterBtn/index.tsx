@@ -5,15 +5,17 @@ import {
   filter_button,
   filter_button_active,
   filter_colors,
+  filter_release_date,
   filter_sizes,
 } from "../../Assets/filters";
 import { FilterBtnContainer } from "./styles";
 import { FilterBtnProps } from "./type";
 
-const filtersSvg = {
+const filtersIcons = {
   alphabet: filter_alphabetic,
   color: filter_colors,
   size: filter_sizes,
+  "release-date": filter_release_date,
 };
 
 const FilterBtn: React.FC<FilterBtnProps> = ({
@@ -38,7 +40,7 @@ const FilterBtn: React.FC<FilterBtnProps> = ({
         className="btn-filter-shape"
       />
       <img
-        src={filtersSvg[filter]}
+        src={filtersIcons[filter]}
         alt={`filter by ${filter}`}
         className="filter-by-shape"
       />

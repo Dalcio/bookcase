@@ -8,6 +8,7 @@ type SortActionsType = {
   sortBySizes: () => void;
   sortByColors: () => void;
   sortByAlphabet: () => void;
+  sortByReleaseDate: () => void;
 };
 
 type ReorderActionsType = {

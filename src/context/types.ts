@@ -7,6 +7,7 @@ export type LastFilter =
   | "alphabet-des"
   | "size-des"
   | "color-des"
+  | "release-date-des"
   | undefined;
 
 export interface BookcaseContextInterface

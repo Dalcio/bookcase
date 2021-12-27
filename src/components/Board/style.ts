@@ -47,7 +47,7 @@ export const BoardWrapper = styled.div`
 
     & > .filters {
       display: grid;
-      grid-template-columns: auto auto auto;
+      grid-template-columns: auto auto auto auto;
       justify-content: space-between;
 
       &:after {
