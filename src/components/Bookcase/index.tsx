@@ -2,64 +2,44 @@ import React, { useCallback } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 
 import { BookcaseContainer } from "./styles";
-import { reorderDiffSource, reorderSameSource } from "./reorders";
-
-import Shelf from "../Shelf";
 import { useBookcase } from "../../context";
 
+import Shelf from "../Shelf";
+
 const Bookcase: React.FC = () => {
-  const { firstShelf, secondShelf, setFirstShelf, setSecondShelf } =
-    useBookcase();
+  const {
+    firstShelf,
+    secondShelf,
+    reorderFirstShelf,
+    reorderSecondShelf,
+    reorderFromFstToSndShelves,
+    reorderFromSndToFstShelves,
+  } = useBookcase();
 
   const onDragEnd = useCallback(
     (result: DropResult) => {
-      if (!result.destination) {
-        return;
-      }
+      if (!result.destination) return;
 
       const { destination, source } = result;
 
       if (source.droppableId === destination.droppableId) {
         if (source.droppableId === "first-shelf-droppable") {
-          const reordered = reorderSameSource(
-            firstShelf,
-            source.index,
-            destination.index
-          );
-          setFirstShelf([...reordered]);
+          reorderFirstShelf(source.index, destination.index);
+        } else {
+          reorderSecondShelf(source.index, destination.index);
         }
-        if (source.droppableId === "second-shelf-droppable") {
-          const reordered = reorderSameSource(
-            secondShelf,
-            source.index,
-            destination.index
-          );
-          setSecondShelf([...reordered]);
-        }
+      } else if (source.droppableId === "first-shelf-droppable") {
+        reorderFromFstToSndShelves(source.index, destination.index);
       } else {
-        if (source.droppableId === "first-shelf-droppable") {
-          const { sourceList, destList } = reorderDiffSource(
-            firstShelf,
-            secondShelf,
-            source.index,
-            destination.index
-          );
-          setFirstShelf([...sourceList]);
-          setSecondShelf([...destList]);
-        }
-        if (source.droppableId === "second-shelf-droppable") {
-          const { sourceList, destList } = reorderDiffSource(
-            secondShelf,
-            firstShelf,
-            source.index,
-            destination.index
-          );
-          setFirstShelf([...destList]);
-          setSecondShelf([...sourceList]);
-        }
+        reorderFromSndToFstShelves(source.index, destination.index);
       }
     },
-    [firstShelf, secondShelf, setFirstShelf, setSecondShelf]
+    [
+      reorderFirstShelf,
+      reorderFromFstToSndShelves,
+      reorderFromSndToFstShelves,
+      reorderSecondShelf,
+    ]
   );
 
   return (

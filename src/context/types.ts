@@ -1,18 +1,14 @@
-import { TBook } from "../components/Book/types";
+import { ActionsType } from "./actions/types";
 import { FiltersKeys } from "../components/FilterBtn/type";
+import { StatePayloadType } from "./reducer/types";
 
 export type LastFilter =
   | FiltersKeys
   | "alphabet-des"
   | "size-des"
-  | "color-des";
+  | "color-des"
+  | undefined;
 
-export interface BookcaseContextInterface {
-  firstShelf: TBook[];
-  secondShelf: TBook[];
-  sortBySizes: () => void;
-  sortByColors: () => void;
-  sortByAlphabet: () => void;
-  setFirstShelf: (args: TBook[]) => void;
-  setSecondShelf: (args: TBook[]) => void;
-}
+export interface BookcaseContextInterface
+  extends StatePayloadType,
+    ActionsType {}
