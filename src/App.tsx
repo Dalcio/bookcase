@@ -3,10 +3,12 @@ import { FC } from "react";
 import { logo } from "./Assets";
 import { Library } from "./styles/Library";
 
+import AddNewBook from "./components/AddNewBook";
 import Bookcase from "./components/Bookcase";
-import Clock from "./components/Clock";
 import BookcaseProvider from "./context";
+import Clock from "./components/Clock";
 import Librarian from "./components/Librarian";
+import Modal from "./components/Modal";
 
 const App: FC = () => {
   return (
@@ -16,6 +18,8 @@ const App: FC = () => {
       <BookcaseProvider>
         <Bookcase />
         <Librarian />
+        <AddNewBook />
+        <Modal />
       </BookcaseProvider>
     </Library>
   );
