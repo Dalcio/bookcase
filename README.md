@@ -49,4 +49,4 @@ I solved all proposed extras challenges, shown below
 
 ## Live Demo
 
-Click [here]() to see the live
+Click [here](https://bookcase.vercel.app/) to see the live
