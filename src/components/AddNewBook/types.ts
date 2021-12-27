@@ -1,5 +1,8 @@
 import { TBook } from "../Book/types";
 
-export type AddNewBookCardType = {
-  addNewBook: (newBook: TBook, shelf: 0 | 1) => void;
+export type BookCardType = {
+  onFinish: (book: TBook, shelf?: 0 | 1) => void;
+  book?: TBook;
+  title?: string;
+  finishBtnLabel?: string;
 };

@@ -3,17 +3,25 @@ import { v4 as uuid4 } from "uuid";
 
 import { ReleaseDate, ShelfPosition } from "./helpers";
 import { TBook } from "../Book/types";
-import { AddNewBookCardContainer } from "./styles";
-import { AddNewBookCardType } from "./types";
+import { AddNewBookCardContainer as BookCardContainer } from "./styles";
+import { BookCardType } from "./types";
 
 import * as books from "../../Assets/books";
 
 import allBooks from "../../context/allBooks";
+import { format } from "date-fns";
 
-const AddNewBookCard: React.FC<AddNewBookCardType> = ({ addNewBook }) => {
-  const [selectedBook, setSelectedBook] = useState("");
-  const [releaseDate, setReleaseDate] = useState<Date>(new Date());
-  const [shelfNumber, setShelfNumber] = useState<0 | 1>(0);
+const BookCard: React.FC<BookCardType> = ({
+  onFinish,
+  book,
+  title,
+  finishBtnLabel,
+}) => {
+  const [selectedBook, setSelectedBook] = useState((book && book.name) || "");
+  const [releaseDate, setReleaseDate] = useState<Date>(
+    (book && book?.releaseDate) || new Date()
+  );
+  const [shelfNumber, setShelfNumber] = useState<0 | 1>();
 
   const handleSelectBook = useCallback((name: string) => {
     setSelectedBook(name);
@@ -36,14 +44,17 @@ const AddNewBookCard: React.FC<AddNewBookCardType> = ({ addNewBook }) => {
         id: uuid4(),
         releaseDate,
       } as TBook;
-      addNewBook(newBook, shelfNumber);
+      onFinish(newBook, shelfNumber);
     }
   };
 
   return (
-    <AddNewBookCardContainer>
-      <h4>Create a new book</h4>
-      <ReleaseDate onChange={handleReleaseDate} />
+    <BookCardContainer>
+      <h4>{title ? title : "Create a new book"}</h4>
+      <ReleaseDate
+        defaultValue={format(releaseDate, "yyyy-MM-dd")}
+        onChange={handleReleaseDate}
+      />
       <ShelfPosition onChange={handleShelfNumber} />
       <div className="books">
         {allBooks.map(({ name }) => (
@@ -57,10 +68,10 @@ const AddNewBookCard: React.FC<AddNewBookCardType> = ({ addNewBook }) => {
         ))}
       </div>
       <button onClick={handleNewBook} className="add-book">
-        Add the book
+        {finishBtnLabel ? finishBtnLabel : "Add the book"}
       </button>
-    </AddNewBookCardContainer>
+    </BookCardContainer>
   );
 };
 
-export default AddNewBookCard;
+export default BookCard;

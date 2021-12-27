@@ -6,6 +6,9 @@ import { useBookcase } from "../../context";
 
 import Shelf from "../Shelf";
 import Options from "../Options";
+import { useModal } from "../Modal";
+import BookCard from "../AddNewBook/BookCard";
+import { TBook } from "../Book/types";
 
 const Bookcase: React.FC = () => {
   const {
@@ -17,9 +20,54 @@ const Bookcase: React.FC = () => {
     reorderSecondShelf,
     reorderFromFstToSndShelves,
     reorderFromSndToFstShelves,
+    updateBookFromFirstShelf,
+    updateBookFromSecondShelf,
   } = useBookcase();
+  const { openModal, closeModal } = useModal();
 
   const [isDragging, setIsDragging] = useState<boolean>(false);
+
+  const handleUpdateBook = useCallback(
+    (sourceId: string, index: number) => {
+      let books;
+
+      if (sourceId === "first-shelf-droppable") {
+        books = [...firstShelf];
+      } else {
+        books = [...secondShelf];
+      }
+
+      const book = books[index];
+
+      const updateBook = (updatedBook: TBook) => {
+        closeModal();
+        if (sourceId === "first-shelf-droppable") {
+          updateBookFromFirstShelf(updatedBook, index);
+        } else {
+          updateBookFromSecondShelf(updatedBook, index);
+        }
+      };
+
+      const UpdateBookCard = (
+        <BookCard
+          onFinish={updateBook}
+          book={book}
+          finishBtnLabel="Update"
+          title="Change the desired field"
+        />
+      );
+
+      openModal(UpdateBookCard);
+    },
+    [
+      closeModal,
+      firstShelf,
+      openModal,
+      secondShelf,
+      updateBookFromFirstShelf,
+      updateBookFromSecondShelf,
+    ]
+  );
 
   const onDragStart = useCallback(() => {
     setIsDragging(true);
@@ -56,14 +104,16 @@ const Bookcase: React.FC = () => {
           deleteBookFromSecondShelf(source.index);
         }
       } else if (destId === "update-droppable") {
+        handleUpdateBook(sourceId, source.index);
       }
       setTimeout(() => {
         setIsDragging(false);
-      }, 500);
+      }, 100);
     },
     [
       deleteBookFromFirstShelf,
       deleteBookFromSecondShelf,
+      handleUpdateBook,
       reorderFirstShelf,
       reorderFromFstToSndShelves,
       reorderFromSndToFstShelves,

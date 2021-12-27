@@ -15,6 +15,8 @@ const updateBook =
       type: fromShelf,
       payload: shelf,
     });
+
+    alert("The book was updated successfully");
   };
 
 export default updateBook;
