@@ -17,8 +17,8 @@ type ReorderActionsType = {
 };
 
 type DeleteActionsType = {
-  deleteBookFromFirstShelf: (index: number) => void;
-  deleteBookFromSecondShelf: (index: number) => void;
+  deleteBookFromFirstShelf: (atIndex: number) => void;
+  deleteBookFromSecondShelf: (atIndex: number) => void;
 };
 
 type UpdateBookActionsType = {

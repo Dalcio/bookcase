@@ -1,5 +1,10 @@
 import { StatePayloadType } from "../reducer/types";
-import { reorderBothShelves, reorderShelf, sortBy } from "./helpers";
+import {
+  deleteBook,
+  reorderBothShelves,
+  reorderShelf,
+  sortBy,
+} from "./helpers";
 import { ActionDispatch, ActionsType } from "./types";
 
 const actions = (
@@ -29,6 +34,16 @@ const actions = (
     ),
     reorderSecondShelf: reorderShelf(
       "REORDER_SECOND_SHELF",
+      dispatch,
+      state.secondShelf
+    ),
+    deleteBookFromFirstShelf: deleteBook(
+      "DELETE_BOOK_FROM_FIRST_SHELF",
+      dispatch,
+      state.firstShelf
+    ),
+    deleteBookFromSecondShelf: deleteBook(
+      "DELETE_BOOK_FROM_SECOND_SHELF",
       dispatch,
       state.secondShelf
     ),
