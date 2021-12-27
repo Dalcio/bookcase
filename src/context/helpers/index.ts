@@ -1,3 +1,3 @@
-export { default as SortByColorHelper } from "./sortByColorHelper";
-export { default as SortByAlphabetHelper } from "./sortByAlphabetHelper";
-export { default as SortBySizeHelper } from "./sortBySizeHelper";
+export { default as sortByColorHelper } from "./sortByColorHelper";
+export { default as sortByAlphabetHelper } from "./sortByAlphabetHelper";
+export { default as sortBySizeHelper } from "./sortBySizeHelper";

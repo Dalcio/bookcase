@@ -1,8 +1,11 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
 
 import { TBook } from "../components/Book/types";
-import { SortByColorHelper, SortBySizeHelper } from "./helpers";
-import sortByAlphabetHelper from "./helpers/sortByAlphabetHelper";
+import {
+  sortByAlphabetHelper,
+  sortByColorHelper,
+  sortBySizeHelper,
+} from "./helpers";
 import { initFirstShelf, initSecondShelf } from "./init";
 import { BookcaseContextInterface, LastFilter } from "./types";
 
@@ -26,7 +29,7 @@ const BookcaseProvider: React.FC = ({ children }) => {
   };
 
   const sortByColors = () => {
-    const { firstShelfSorted, secondShelfSorted, filter } = SortByColorHelper({
+    const { firstShelfSorted, secondShelfSorted, filter } = sortByColorHelper({
       firstShelf,
       secondShelf,
       lastFilter,
@@ -38,7 +41,7 @@ const BookcaseProvider: React.FC = ({ children }) => {
   };
 
   const sortBySizes = () => {
-    const { firstShelfSorted, secondShelfSorted, filter } = SortBySizeHelper({
+    const { firstShelfSorted, secondShelfSorted, filter } = sortBySizeHelper({
       firstShelf,
       secondShelf,
       lastFilter,

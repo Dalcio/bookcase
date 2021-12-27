@@ -14,9 +14,9 @@ const sortBySizeHelper = ({
   let filter: LastFilter = "size";
 
   if (lastFilter === "size") {
+    order = -1;
     filter = "size-des";
   } else if (lastFilter === "size-des") {
-    order = -1;
     filter = "size";
   }
 
