@@ -21,7 +21,7 @@ const BookCard: React.FC<BookCardType> = ({
   const [releaseDate, setReleaseDate] = useState<Date>(
     (book && book?.releaseDate) || new Date()
   );
-  const [shelfNumber, setShelfNumber] = useState<0 | 1>();
+  const [shelfNumber, setShelfNumber] = useState<0 | 1>(0);
 
   const handleSelectBook = useCallback((name: string) => {
     setSelectedBook(name);
@@ -55,7 +55,9 @@ const BookCard: React.FC<BookCardType> = ({
         defaultValue={format(releaseDate, "yyyy-MM-dd")}
         onChange={handleReleaseDate}
       />
-      <ShelfPosition onChange={handleShelfNumber} />
+      {finishBtnLabel !== "Update" && (
+        <ShelfPosition onChange={handleShelfNumber} />
+      )}
       <div className="books">
         {allBooks.map(({ name }) => (
           <button

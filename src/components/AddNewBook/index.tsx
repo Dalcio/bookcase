@@ -14,7 +14,7 @@ const AddNewBook: React.FC = () => {
 
   const addBook = (book: BookType, shelf?: 0 | 1) => {
     closeModal();
-    shelf === 0 ? addBookToFirstShelf(book) : addBookToSecondShelf(book);
+    shelf === 1 ? addBookToFirstShelf(book) : addBookToSecondShelf(book);
   };
 
   const OpenModalElement = <BookCard onFinish={addBook} />;

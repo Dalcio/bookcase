@@ -19,7 +19,7 @@ const addNewBook =
         window.screen.width >= 160 &&
         window.screen.width < 400)
     ) {
-      alert("The selected Shelf if full. Please choose another");
+      alert("The selected Shelf is full. Please choose another");
     } else {
       shelf.push(newBook);
       dispatch({

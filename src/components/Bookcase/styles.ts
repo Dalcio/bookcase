@@ -16,10 +16,10 @@ export const BookcaseContainer = styled.div`
 
   display: grid;
   grid-template-columns: 20px 1fr 90px;
-  grid-template-rows: 42px 1fr 13px 1fr 80px;
+  grid-template-rows: 42px 1fr 3px 1fr 80px;
 
   @media screen and (min-width: 400px) {
-    grid-template-rows: 50px 1fr 27px 1fr 45px;
+    grid-template-rows: 50px 1fr 13px 1fr 45px;
     grid-template-columns: 20px 1fr 100px;
     left: calc(50% - 160px);
     width: 400px;
@@ -27,7 +27,7 @@ export const BookcaseContainer = styled.div`
   }
 
   @media screen and (min-width: 500px) {
-    grid-template-rows: 56px 1fr 30px 1fr 24px;
+    grid-template-rows: 56px 1fr 26px 1fr 24px;
     grid-template-columns: 23px 1fr 168px;
     left: calc(50% - 180px);
     width: 500px;
