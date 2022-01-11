@@ -12,7 +12,7 @@ export const ClockWrapper = styled.svg`
 
   position: relative;
 
-  background: url(${clock_base});
+  background: url(${clock_base}) no-repeat;
 
   width: 130px;
   height: 130px;
